@@ -27,4 +27,18 @@ app.MapGet("/weatherforecast", () =>
     return Results.Ok(forecast); // or just: return forecast;
 });
 
+app.MapGet("/order", () =>
+{
+    var order = new Order
+    {
+        Id = 1,
+        CustomerId = 12,
+        OrderDate = DateTime.Now,
+        Status = "Pending",
+        TotalAmount = 19.99m,
+        DeliveryAdderss = "Las garzas mz 8 casa 21"
+    };
+    return Results.Ok(order);
+});
+
 await app.RunAsync();
