@@ -5,13 +5,13 @@ VisualStudioVersion = 17.13.36105.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivery.Api", "Delivery.Api.csproj", "{01401AFC-045F-4122-B43F-9D19E255B951}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivery.Application", "..\Delivery.Application\Delivery.Application.csproj", "{FCAC102D-342F-4A44-BADF-D7B505C01BA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivery.Application", "Delivery.Application\Delivery.Application.csproj", "{FCAC102D-342F-4A44-BADF-D7B505C01BA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivery.Domain", "..\Delivery.Domain\Delivery.Domain.csproj", "{95CCD08C-97B9-4BA9-8BBA-3010D25065C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivery.Domain", "Delivery.Domain\Delivery.Domain.csproj", "{95CCD08C-97B9-4BA9-8BBA-3010D25065C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivery.Infrastructure", "..\Delivery.Infrastructure\Delivery.Infrastructure.csproj", "{59938ED7-2BF1-4B65-A53C-F30091A4B46C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivery.Infrastructure", "Delivery.Infrastructure\Delivery.Infrastructure.csproj", "{59938ED7-2BF1-4B65-A53C-F30091A4B46C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivery.Shared", "..\Delivery.Shared\Delivery.Shared.csproj", "{96F92E25-2B0D-4A84-BF77-688F88655585}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivery.Shared", "Delivery.Shared\Delivery.Shared.csproj", "{96F92E25-2B0D-4A84-BF77-688F88655585}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
