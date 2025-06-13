@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Delivery.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250613031443_Initial")]
+    [Migration("20250613040709_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -41,7 +41,7 @@ namespace Delivery.Infrastructure.Migrations
                         .HasColumnName("date_of_birth");
 
                     b.Property<string>("Emails")
-                        .HasColumnType("jsonb")
+                        .HasColumnType("json")
                         .HasColumnName("emails");
 
                     b.Property<DateTime>("UpdatedAt")

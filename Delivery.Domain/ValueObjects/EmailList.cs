@@ -6,7 +6,7 @@ public sealed class EmailList : List<Email>, IReadOnlyEmailList
     {
     }
 
-    public static EmailList Create(params Email[] emails)
+    public static EmailList Create(params IEnumerable<Email> emails)
     {
         return new EmailList(emails);
     }

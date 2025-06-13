@@ -12,7 +12,20 @@ public class EmailListToJsonConverter : ValueConverter<IReadOnlyEmailList, strin
     };
 
     public EmailListToJsonConverter() : base(
-        v => JsonSerializer.Serialize(v, (JsonSerializerOptions?)null),
-        v => JsonSerializer.Deserialize<EmailList>(v, options) ?? EmailList.Create())
+        v => NewMethod1(v),
+        v => NewMethod(v))
     { }
+
+    private static string NewMethod1(IReadOnlyEmailList v)
+    {
+        //string[] values = [.. v.Select(v => v.Value.Value)];
+        var s = JsonSerializer.Serialize(v, options);
+        return s;
+    }
+
+    private static IReadOnlyEmailList NewMethod(string v)
+    {
+        var s = JsonSerializer.Deserialize<IReadOnlyEmailList>(v, options) ?? EmailList.Create([]);
+        return s;
+    }
 }

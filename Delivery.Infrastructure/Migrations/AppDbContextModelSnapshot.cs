@@ -38,7 +38,7 @@ namespace Delivery.Infrastructure.Migrations
                         .HasColumnName("date_of_birth");
 
                     b.Property<string>("Emails")
-                        .HasColumnType("jsonb")
+                        .HasColumnType("json")
                         .HasColumnName("emails");
 
                     b.Property<DateTime>("UpdatedAt")

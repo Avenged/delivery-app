@@ -27,7 +27,7 @@ namespace Delivery.Infrastructure.Migrations
                     state = table.Column<string>(type: "text", nullable: false),
                     postal_code = table.Column<string>(type: "text", nullable: false),
                     country = table.Column<string>(type: "text", nullable: false),
-                    emails = table.Column<string>(type: "jsonb", nullable: true),
+                    emails = table.Column<string>(type: "json", nullable: true),
                     date_of_birth = table.Column<DateTime>(type: "date", nullable: false),
                     created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     updated_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)

@@ -21,19 +21,19 @@ using (var scope = app.Services.CreateScope())
     IDbContextFactory<AppDbContext> factory = scope.ServiceProvider.GetRequiredService<IDbContextFactory<AppDbContext>>();
     AppDbContext db = factory.CreateDbContext();
 
-    CustomerAggregate customer = CustomerAggregate.Create(
-        Guid.Empty,
-        PersonalName.Create(new("José"), new("Chaudary")),
-        PhoneNumber.Create(new("+5491133345566")),
-        Address.Create(new("123 Main St"), new("Springfield"), new("IL"), new("62701"), new("USA")),
-        EmailList.Create(Email.Create(new("chaudarysucre@gmail.com"))),
-        DateTime.Now
-    );
+    //CustomerAggregate customer = CustomerAggregate.Create(
+    //    Guid.Empty,
+    //    PersonalName.Create(new("José"), new("Chaudary")),
+    //    PhoneNumber.Create(new("+5491133345566")),
+    //    Address.Create(new("123 Main St"), new("Springfield"), new("IL"), new("62701"), new("USA")),
+    //    EmailList.Create(Email.Create(new("chaudarysucre@gmail.com"))),
+    //    DateTime.Now
+    //);
 
-    db.Customers.Add(customer);
-    await db.SaveChangesAsync();
+    //db.Customers.Add(customer);
+    //await db.SaveChangesAsync();
 
-    //var s = await db.Customers.FirstAsync();
+    // var s = await db.Customers.FirstAsync();
 }
 
 var summaries = new[]

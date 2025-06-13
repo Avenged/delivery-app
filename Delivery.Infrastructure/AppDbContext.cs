@@ -81,7 +81,7 @@ public class AppDbContext : DbContext
         builder.Property(c => c.Emails)
             .HasColumnName("emails")
             .HasConversion(new EmailListToJsonConverter())
-            .HasColumnType("jsonb")
+            .HasColumnType("json")
             .IsRequired(false);
 
         // DateOfBirth
