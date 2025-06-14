@@ -3,6 +3,7 @@ using Delivery.Domain.ValueObjects;
 using Delivery.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Delivery.Domain;
+using Delivery.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,7 +34,8 @@ using (var scope = app.Services.CreateScope())
     //db.Customers.Add(customer);
     //await db.SaveChangesAsync();
 
-    // var s = await db.Customers.FirstAsync();
+    var s = await db.Customers.FirstAsync();
+    var n = s.Address.ToString();
 }
 
 var summaries = new[]

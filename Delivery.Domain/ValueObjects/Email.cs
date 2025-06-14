@@ -3,9 +3,9 @@ using System.Text.Json;
 
 namespace Delivery.Domain.ValueObjects;
 
-public sealed record Email(TrimmedNonEmptyString Value)
+public sealed record Email(TneString Value)
 {
-    public static Email Create(TrimmedNonEmptyString value)
+    public static Email Create(TneString value)
     {
         return new Email(value);
     }

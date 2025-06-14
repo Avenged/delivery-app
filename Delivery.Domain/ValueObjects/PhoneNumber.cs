@@ -1,20 +1,27 @@
 ﻿using Delivery.Shared;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 
 namespace Delivery.Domain.ValueObjects;
 
-public sealed record PhoneNumber
+[DebuggerDisplay("{Value}")]
+public sealed partial record PhoneNumber : ValueObjectBase
 {
-    private static readonly Regex _phoneRegex = new(@"^\+?[0-9]{7,15}$", RegexOptions.Compiled);
+    [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+    private static readonly Regex _phoneRegex = PhoneNumberRegex();
 
-    public TrimmedNonEmptyString Value { get; }
+    [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+    public TneString Value { get; }
 
-    private PhoneNumber(TrimmedNonEmptyString value)
+    [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+    protected override Type EqualityContract => base.EqualityContract;
+
+    private PhoneNumber(TneString value)
     {
         Value = value;
     }
 
-    public static PhoneNumber Create(TrimmedNonEmptyString value)
+    public static PhoneNumber Create(TneString value)
     {
         if (!_phoneRegex.IsMatch(value))
             throw new ArgumentException("Invalid phone number format.", nameof(value));
@@ -22,7 +29,7 @@ public sealed record PhoneNumber
         return new PhoneNumber(value);
     }
 
-    public static bool TryCreate(TrimmedNonEmptyString? value, out PhoneNumber? result)
+    public static bool TryCreate(TneString? value, out PhoneNumber? result)
     {
         result = null;
 
@@ -37,4 +44,9 @@ public sealed record PhoneNumber
     }
 
     public override string ToString() => Value;
+
+    [GeneratedRegex(@"^\+?[0-9]{7,15}$", RegexOptions.Compiled)]
+    private static partial Regex PhoneNumberRegex();
+
+    public static implicit operator string(PhoneNumber instance) => instance.Value;
 }

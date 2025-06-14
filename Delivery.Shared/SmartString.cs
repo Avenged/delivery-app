@@ -1,7 +1,10 @@
-﻿namespace Delivery.Shared;
+﻿using System.Diagnostics;
+
+namespace Delivery.Shared;
 
 public abstract record SmartString<TPolicy> where TPolicy : IStringPolicy, new()
 {
+    [DebuggerBrowsable(DebuggerBrowsableState.Never)]
     public string Value { get; }
 
     protected SmartString(string value)

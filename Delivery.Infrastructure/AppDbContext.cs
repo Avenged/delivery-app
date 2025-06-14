@@ -36,7 +36,7 @@ public class AppDbContext : DbContext
         {
             foreach (var property in entityType.GetProperties())
             {
-                if (property.ClrType == typeof(TrimmedNonEmptyString))
+                if (property.ClrType == typeof(TneString))
                 {
                     property.SetValueConverter(converter);
                     property.SetColumnType("text");

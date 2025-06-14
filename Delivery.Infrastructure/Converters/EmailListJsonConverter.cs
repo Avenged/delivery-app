@@ -10,7 +10,7 @@ public class EmailListJsonConverter : JsonConverter<IReadOnlyEmailList>
     public override EmailList Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         List<string>? emails = JsonSerializer.Deserialize<List<string>>(ref reader, options) ?? [];
-        return EmailList.Create(emails.Select(x => Email.Create(new TrimmedNonEmptyString(x))));
+        return EmailList.Create(emails.Select(x => Email.Create(new TneString(x))));
     }
 
     public override void Write(Utf8JsonWriter writer, IReadOnlyEmailList value, JsonSerializerOptions options)

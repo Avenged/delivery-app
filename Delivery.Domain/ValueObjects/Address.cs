@@ -1,20 +1,25 @@
 ﻿using Delivery.Shared;
+using System.Diagnostics;
+using System.Text.Json;
 
 namespace Delivery.Domain.ValueObjects;
 
 public sealed record Address(
-    TrimmedNonEmptyString Street,
-    TrimmedNonEmptyString City,
-    TrimmedNonEmptyString State,
-    TrimmedNonEmptyString PostalCode,
-    TrimmedNonEmptyString Country)
+    TneString Street,
+    TneString City,
+    TneString State,
+    TneString PostalCode,
+    TneString Country) : ValueObjectBase
 {
+    [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+    protected override Type EqualityContract => base.EqualityContract;
+
     public static Address Create(
-        TrimmedNonEmptyString street,
-        TrimmedNonEmptyString city,
-        TrimmedNonEmptyString state,
-        TrimmedNonEmptyString postalCode,
-        TrimmedNonEmptyString country)
+        TneString street,
+        TneString city,
+        TneString state,
+        TneString postalCode,
+        TneString country)
     {
         return new Address(
             street,
@@ -23,6 +28,9 @@ public sealed record Address(
             postalCode,
             country);
     }
+
+    public override string ToString()
+        => JsonSerializer.Serialize(this, SerializerOptions.ToString);
 
     public string FullAddress =>
         $"{Street}, {City}, {State} {PostalCode}, {Country}";
